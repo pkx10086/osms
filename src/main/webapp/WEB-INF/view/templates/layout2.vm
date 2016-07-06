@@ -1,0 +1,11 @@
+<html>
+    <head>
+        <title>Spring MVC and Velocity2</title>
+    </head>
+    <body>
+        <h1>Spring MVC and Velocity2</h1>
+        $screen_content
+        <hr/>
+        Copyright &copy 2015 lm
+    </body>
+</html>
