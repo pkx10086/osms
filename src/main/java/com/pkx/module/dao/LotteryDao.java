@@ -1,5 +1,8 @@
 package com.pkx.module.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import com.pkx.module.entity.Lottery;
@@ -16,6 +19,8 @@ public interface LotteryDao {
 	 * @return int
 	 */
 	public int insertSelective(Lottery lottery);
+	
+	public List<Lottery> getLottery(@Param("lotteryType")String lotteryType);
 	
 
 }

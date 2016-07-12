@@ -1,7 +1,12 @@
 package com.pkx.module.service;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ObjectUtils;
 
 import com.pkx.module.dao.LotteryDao;
 import com.pkx.module.entity.Lottery;
@@ -26,5 +31,27 @@ public class LotteryService {
 	     }
 	     return false;
 	}
-
+	@Transactional
+	public boolean batchAdd(List<Lottery> lotterys) throws RuntimeException{
+		if(lotterys==null || lotterys.size()<=0){
+			return false;
+		}
+		if(ObjectUtils.isEmpty(lotterys)){
+			return false;
+		}
+		
+		for(Lottery lott:lotterys){
+			int effectRows = lotteryDao.insertSelective(lott);
+			if(effectRows<=0){
+				throw new RuntimeException("[throw Exception] batchAdd lottery is fail,the reason is effectRows is 0");
+			}
+		}
+		return true;
+	}
+	
+	
+	public List<Lottery> getLottery(String lotteryType){
+		return this.lotteryDao.getLottery(lotteryType);
+		
+	}
 }

@@ -13,6 +13,7 @@ public class Lottery {
 	private String id; //
 	private String lotteryName;
 	private String lotteryCode;
+	private String lotteryType;
 	private long sort;
 	private Date createTime;
 	private Date updateTime;
@@ -34,6 +35,13 @@ public class Lottery {
 	public void setLotteryCode(String lotteryCode) {
 		this.lotteryCode = lotteryCode;
 	}
+	
+	public String getLotteryType() {
+		return lotteryType;
+	}
+	public void setLotteryType(String lotteryType) {
+		this.lotteryType = lotteryType;
+	}
 	public long getSort() {
 		return sort;
 	}
@@ -52,12 +60,12 @@ public class Lottery {
 	public void setUpdateTime(Date updateTime) {
 		this.updateTime = updateTime;
 	}
-	
 	@Override
 	public String toString() {
-		return "Lottery [id=" + id + ", lotteryName=" + lotteryName + ", lotteryCode=" + lotteryCode + ", sort=" + sort
-				+ ", createTime=" + createTime + "]";
+		return "Lottery [id=" + id + ", lotteryName=" + lotteryName + ", lotteryCode=" + lotteryCode + ", lotteryType="
+				+ lotteryType + ", sort=" + sort + ", createTime=" + createTime + ", updateTime=" + updateTime + "]";
 	}
 	
+
 	
 }
