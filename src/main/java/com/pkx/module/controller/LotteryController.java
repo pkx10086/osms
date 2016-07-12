@@ -1,15 +1,32 @@
 package com.pkx.module.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.pkx.module.entity.Lottery;
+import com.pkx.module.service.LotteryService;
 
 import common.util.HttpClientUtil;
 
 @Controller
 public class LotteryController {
 	
+	@Resource
+	private LotteryService lotteryService;
 	//从远程接口获得彩票种类。
 	
 	/**
@@ -19,17 +36,18 @@ public class LotteryController {
 	 * @param @return 
 	 * @return String
 	 */
-	public String getLottery(){
-		//查询彩票种类
-		String url="http://api.avatardata.cn/Lottery/List";
-		String charset="UTF-8";
-		Map<String,String> params = new HashMap<String,String>();
-		params.put("key", "8fd52d9938ab4a319bcdc53dd182bf1b");
-		params.put("lotterytype", "1");
-		HttpClientUtil httpClientUtil = new HttpClientUtil();
-		String str = httpClientUtil.doPost(url, params);
-		System.out.println("str::"+str);
-		return "";
+	@ResponseBody
+	@RequestMapping(value="/getLottery",method=RequestMethod.GET)
+	public List<Lottery> getLottery(HttpServletRequest request){
+		String lotteryType = request.getParameter("lotteryType");
+		List<Lottery> lotterys = this.lotteryService.getLottery(lotteryType);
+		return lotterys;
+	}
+	
+	public static void main(String[] args) {
+		LotteryController lott = new LotteryController();
+		///lott.getLottery();
+		
 	}
 }
  

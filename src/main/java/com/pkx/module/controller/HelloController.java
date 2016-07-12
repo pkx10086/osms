@@ -10,8 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.pkx.module.entity.User;
 import com.pkx.module.service.UserService;
 
-import common.util.DateUtil;
-
 @Controller
 public class HelloController {
 	
