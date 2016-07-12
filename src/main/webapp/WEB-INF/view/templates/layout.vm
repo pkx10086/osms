@@ -4,7 +4,7 @@
     </head>
     <body>
         <h1>Spring MVC and Velocity</h1>
-        $screen_content
+      	  $screen_content
         <hr/>
         Copyright &copy 2014 lm
     </body>

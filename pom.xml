@@ -11,6 +11,11 @@
 		<shiro-core>1.2.4</shiro-core>
 		<spring-aop>4.2.0.RELEASE</spring-aop>
 		<quartz_version>2.2.3</quartz_version>
+		<httpClient_version>4.5.2</httpClient_version>
+		<commons-lang3_version>3.4</commons-lang3_version>
+  		<quartz_version>2.2.3</quartz_version>
+  		<codehaus_version>1.1.1</codehaus_version>
+  		<fastJson_verion>1.2.13</fastJson_verion>
 </properties>
 <build>
     <pluginManagement>
@@ -27,6 +32,31 @@
     
 </build>
 	<dependencies>
+		 <dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-lang3</artifactId>
+		    <version>${commons-lang3_version}</version>
+   		</dependency>
+   		<dependency>
+				<groupId>org.quartz-scheduler</groupId>
+	   			 <artifactId>quartz</artifactId>
+	    		 <version>${quartz_version}</version>
+    		</dependency>
+		<dependency>
+		    <groupId>org.codehaus.fabric3.api</groupId>
+		    <artifactId>commonj</artifactId>
+		    <version>${codehaus_version}</version>
+		</dependency>
+	<dependency>
+   	 	<groupId>com.alibaba</groupId>
+    	<artifactId>fastjson</artifactId>
+    	<version>${fastJson_verion}</version>
+    </dependency>
+ 	 <dependency>
+		<groupId>org.apache.httpcomponents</groupId>
+		<artifactId>httpclient</artifactId>
+		<version>${httpClient_version}</version> <!-- 分模块开发，父项目中有，这个版本号就可以省略了-->
+	  </dependency>
 		<!-- 加载spring的jar包 -->	
 			<dependency>
 				<groupId>org.springframework</groupId>
@@ -142,17 +172,23 @@
 </dependency>
 	<!-- 定时器 -->
 	<dependency>
-				<groupId>org.quartz-scheduler</groupId>
-	   			 <artifactId>quartz</artifactId>
-	    		 <version>${quartz_version}</version>
-    		</dependency>
+			<groupId>org.quartz-scheduler</groupId>
+   			 <artifactId>quartz</artifactId>
+    		 <version>${quartz_version}</version>
+    </dependency>
 	 <!-- junit测试 -->      
        <dependency>  
             <groupId>junit</groupId>  
             <artifactId>junit</artifactId>  
-            <version>4.10</version>  
+            <version>4.12</version>  
             <scope>test</scope>  
      </dependency> 
+     <dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-test</artifactId>
+    <version>4.2.1.RELEASE</version>
+     <scope>test</scope>  
+</dependency>
       
      <!-- tomcat  -->
      <dependency>
