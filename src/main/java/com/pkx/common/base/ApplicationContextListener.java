@@ -3,10 +3,8 @@ package com.pkx.common.base;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-import org.quartz.Job;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.Trigger;
 
 import common.quarzt.LzstoneTimeTask;
 import common.util.Exceptions;
